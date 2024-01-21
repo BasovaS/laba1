@@ -1,12 +1,11 @@
 ﻿#include <iostream>
 #include <vector>
 #include <iomanip>
-using namespace std;
 
 class Array
 {
 private:
-    vector<double> dynamicArray;
+    std::vector<double> dynamicArray;
     double sum, average;
 
 public:
@@ -20,7 +19,7 @@ public:
 
     void deleteElements() {
         dynamicArray.pop_back();
-        cout << "-: " << dynamicArray.size() << endl;
+        std::cout << "-: " << dynamicArray.size() << std::endl;
         coutFunction();
         calculateSumsAndAddToVector();
         divideElementsByHalfSum();
@@ -29,9 +28,9 @@ public:
 
     void addElements() {
         double elements = 0;
-        cin >> elements;
+        std::cin >> elements;
         dynamicArray.push_back(elements);
-        cout << "+: " << dynamicArray.size() << endl;
+        std::cout << "+: " << dynamicArray.size() << std::endl;
         coutFunction();
         calculateSumsAndAddToVector();
         divideElementsByHalfSum();
@@ -39,7 +38,7 @@ public:
     }
 
     void fillArray(double arr[], int arraySize) {
-        cout << arraySize << endl;
+        std::cout << arraySize << std::endl;
 
         for (int i = 0; i < arraySize; i++) {
             dynamicArray.push_back(arr[i]);
@@ -91,17 +90,17 @@ public:
     }
 
     void coutFunction() {
-        cout << fixed << setprecision(3);
+        std::cout << std::fixed << std::setprecision(3);
         for (int i = 0; i < dynamicArray.size(); i++) {
-            cout << dynamicArray[i] << " ";
+            std::cout << dynamicArray[i] << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
     }
 
     void menu() {
         int choice;
         while (true) {
-            cin >> choice;
+            std::cin >> choice;
 
             switch (choice) {
             case 0:
@@ -113,7 +112,7 @@ public:
                 deleteElements();
                 break;
             default:
-                cout << "Invalid choice." << endl;
+                std::cout << "Invalid choice." << std::endl;
                 break;
             }
         }
@@ -122,11 +121,11 @@ public:
 
 int main() {
     int arraySize;
-    cin >> arraySize;
+    std::cin >> arraySize;
     double arr[arraySize];
 
     for (int i = 0; i < arraySize; i++) {
-        cin >> arr[i];
+        std::cin >> arr[i];
     }
 
     Array myArray(arr, arraySize);
